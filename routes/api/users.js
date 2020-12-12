@@ -19,8 +19,6 @@ router.post('/register', async(req, res)=>{
     res.status(200).json(user)
 });
 
-//o router.get('/', userController.Listar); y la logica que esta arriba se le envia al archivo en controladores. que es una manera mas ordenada de hacerlo. (tarea)
-//o router.post('register', UserController.register); y la logica que esta arriba se le envia al archivo en controladores. que es una manera mas ordenada de hacerlo. (tarea)
 router.post('/signin', userController.signin);
 
 module.exports = router;

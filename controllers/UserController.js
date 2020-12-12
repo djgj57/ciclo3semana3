@@ -19,19 +19,13 @@ exports.signin = async(req, res, next) => {
                 }
                 );
                 res.status(200).send({ 
-                    auth: true, 
-                    accessToken: token, 
-                    user: user 
-                })
+                    accessToken: token 
+                });
             } else {
-                res.status(401).json({
-                    error: 'Error en usuario o contraseña'
-                })
+                res.status(401).send({ auth: false, accessToken: null, reason: "Invalid Password!" });
             }
         } else {
-            res.status(404).json({
-                error: 'Error en usuario o contraseña'
-            })
+            res.status(404).send('User Not Found.');
         }
     } catch (error) {
         res.status(500).send({
