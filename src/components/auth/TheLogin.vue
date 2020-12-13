@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import swal from 'sweetalert';
+
 export default {
     name: 'TheLogin',
     data(){
@@ -43,11 +45,13 @@ export default {
               localStorage.setItem('jwt', token);
               localStorage.setItem('user', JSON.stringify(user))
               if (token){
+                swal("Éxito!!", "Login correcto!", "success");
                 this.$router.push('/home');
               }else{
                 console.log(err.response)
               }
-          }catch{
+          }catch(error){
+            swal("Oops!", "Algo salió mal!", "error");
 
           }
         }
