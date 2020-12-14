@@ -11,15 +11,16 @@ exports.signin = async(req, res, next) => {
             if (passwordIsValid) {
                 const token = jwt.sign({
                     id: user.id,
-                    name: user.username,
-                    email: user.email,
-                    rol: user.rol
+                    name: user.name,
+                    email: user.email
                 }, 'config.secret', {
                     expiresIn: 86400, //24 horas
                 }
                 );
                 res.status(200).send({ 
-                    accessToken: token 
+                    auth: true,
+                    accessToken: token,
+                    user: user
                 });
             } else {
                 res.status(401).send({ auth: false, accessToken: null, reason: "Invalid Password!" });
