@@ -11,12 +11,12 @@ app.use(cors());
 
 
 //Para hacer peticiones internas (a la final no se utilizo) y resolver lio de cors.
-// app.use((req, res, next) =>{
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     res.header('Access-Control-Allow-Methods: GET, POST, DELETE');
-//     next();
-// });
+app.use((req, res, next) =>{
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header('Access-Control-Allow-Methods: GET, POST, DELETE');
+    next();
+});
 
 //middLeware morgan para detectar peticiones 
 app.use(morgan('dev'));
