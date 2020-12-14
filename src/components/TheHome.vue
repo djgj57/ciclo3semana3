@@ -42,7 +42,7 @@ export default {
             let token = localStorage.getItem('jwt');
 
             if(token){
-                this.user = JSON.parse(user);                
+                this.user = JSON.parse(user);               
             }
         },
         logOut(){
